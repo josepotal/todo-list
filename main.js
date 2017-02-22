@@ -8,7 +8,7 @@ const middlewareLog = logger('dev')
 //Imports from tasks.js
 const allTasks = require('./app/tasks')
 
-var arrayTask = allTasks.taskList
+var arrayTask = allTasks.arrayTask
 var Task = allTasks.Task
 var deleteTask = allTasks.deleteTask
 
@@ -27,9 +27,9 @@ app.get('/', (req,res)=> {
 });
 
 
-app.get('delete/:id', (req, res) => {
-  var id = +req.params.id;
-  deleteTask(id);
+app.get('/delete/:id', (req, res) => {
+  var index = arrayTask.findIndex((elem) => elem.id === +req.params.id)
+  arrayTask.splice(index,1);
   console.log(arrayTask)
   res.redirect('/'); 
 })
@@ -41,7 +41,7 @@ app.get('/completed', (req,res)=> {
 
 
 app.post('/', (req,res) => {
-  var newTask = new Task(arrayTask.length+1, req.body.newTask, new Date().toDateString())
+  var newTask = new Task(getMaxId(arrayTask)+1, req.body.newTask)
   arrayTask.push(newTask);
   res.redirect('/');  
 });
@@ -53,3 +53,18 @@ app.post('/', (req,res) => {
 app.listen(3000,()=> (console.log('Listening at port 3000...')));
 
 
+
+//Helper funcitons
+deleteTask = id => {
+  var index = ArrayfindIndex((elem) => elem.id === +req.params.id)
+  arrayTask.splice(id,1)
+
+  return arrayTask
+};
+
+// more functions
+
+function getMaxId (aIdTasks) {
+  let id = aIdTasks.reduce((acc, elem) => Math.max(acc, elem.id), 0)
+  return id
+}

@@ -1,15 +1,17 @@
+// const bodyParser = require('body-parser');
+// const middlewareLog = logger('dev')
 
 //const taskList = require('./posts.json');
 var arrayTask = [];
  
-exports.taskList = arrayTask;
+exports.arrayTask = arrayTask;
 
 
-function Task(id, name, creationDate, completedDate) {
+function Task(id, name) {
   this.id = id;
   this.name = name;
-  this.creationDate = creationDate;
-  this.completedDate = completedDate;
+  this.creationDate = new Date().toDateString();
+  this.completedDate = "";
 }
 
 exports.Task = Task
@@ -21,12 +23,6 @@ addNewTask = () => {
 
 exports.addNewTask = addNewTask
 
-deleteTask = id => {
-  arrayTask.splice(id,1)
-  return arrayTask
-};
-
-exports.deleteTask = deleteTask;
  
 // exports.getBlogEntry = (id) => 
 //     entries.find( post => post.id === +id)
