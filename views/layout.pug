@@ -1,0 +1,23 @@
+html
+  head
+    title=title
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='http://bootswatch.com/darkly/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/styles.css')
+  body
+    .container
+
+      .jumbotron
+        .container
+          h1 Welcome to my Blog!
+    
+      block content
+
+      footer 
+        p
+          a(href='/') Home
+          |  ~
+          a(href='/about') About Me
+    
+    script(src='/bower_components/jquery/dist/jquery.min.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')

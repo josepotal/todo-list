@@ -1,0 +1,22 @@
+{
+  "name": "todo-list",
+  "description": "This is a complete project to develop a **TODO-LIST** app.",
+  "main": "main.js",
+  "authors": [
+    "Josep Otal <j.otal.pares@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/josepotal/todo-list",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}
