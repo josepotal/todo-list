@@ -52,3 +52,22 @@ This is a complete project to develop a **TODO-LIST** app.
     [some pug code here]
     ```
 
+###bodyParser
+- Collects the data from the POST method and prepare it to the `req.body`
+- It is used only for post methods
+- `npm install body-parser`
+
+``` 
+const bodyParser = require('body-parser') // we require the package
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+// we will see the results in the console
+app.post('/users', (req,res) => {
+    console.log(req.body.username)
+    console.log(req.body.mail)
+}
+```

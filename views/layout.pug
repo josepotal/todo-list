@@ -15,9 +15,22 @@ html
       .jumbotron
         .container
           
-          block content
+          block header-content
+          p Welcome to the Todo app by @me. Please enjoy
 
-      
-    
+      block content
+      form(action='/', method='POST')
+        div
+          input(type='text', name='newTask', placeholder='Add a new task')
+          button(type='submit') add
+
+        ul.list-group
+          each task in arrayTask
+            li.list-group-item.task
+              a(href='') completed
+              p #{task.id}. #{task.name}
+              p Created at: #{task.creationDate} 
+              a(href='/delete/' + task.id) delete
+
     script(src='/bower_components/jquery/dist/jquery.min.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
